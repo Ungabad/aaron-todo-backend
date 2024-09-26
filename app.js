@@ -5,7 +5,9 @@ const Todo = require("./models/Todo");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-mongoose.connect(`${process.env.MONGODB_API_KEY}`);
+mongoose.connect(
+  `mongodb+srv://${process.env.MONGODB_API_KEY}@cluster0.zt5pw.mongodb.net/`
+);
 
 app.use(cors());
 app.use(express.json());
