@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 mongoose.connect(
-  `"mongodb+srv://shunkabad:theNewNew@cluster0.zt5pw.mongodb.net"`
+  `mongodb+srv://shunkabad:theNewNew@cluster0.zt5pw.mongodb.net`
 );
 
 app.use(cors());
