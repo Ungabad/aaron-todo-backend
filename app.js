@@ -10,7 +10,7 @@ mongoose.connect(`${process.env.MONGODB_API_KEY}`);
 app.use(cors());
 app.use(express.json());
 app.get("/Todo", async (rec, res) => {
-  const todos = await Todo.find();
+  const todos = await todo.find();
   res.json({ todos: todos });
 });
 
