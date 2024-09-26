@@ -21,7 +21,7 @@ app.post("/add-todo", async (rec, res) => {
 app.post("/edit-item/:id", async (rec, res) => {
   await Todo.findOneAndUpdate({ id: req.params.id }, req.body);
 });
-app.DELETE("/DELETE-item/:id", async (rec, res) => {
+app.delete("/DELETE-item/:id", async (rec, res) => {
   await Todo.deleteOne({ id: req.params.id });
 });
 app.listen(5000, () => {
