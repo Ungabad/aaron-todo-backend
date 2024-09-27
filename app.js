@@ -9,11 +9,15 @@ mongoose.connect(
   `mongodb+srv://${process.env.MONGODB_API_KEY}@cluster0.zt5pw.mongodb.net/`
 );
 
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
 app.use(express.json());
-app.get("/Todo", async (rec, res) => {
-  const todos = await Todo.find();
-  res.json({ todos: todos }).set("Access-Control-Allow-Origin", "*");
+app.get("/Todo", (req, res) => {
+  res.json({ message: "CORS enabled!" });
 });
 
 app.post("/add-todo", async (rec, res) => {
