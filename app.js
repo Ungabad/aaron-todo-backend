@@ -10,7 +10,7 @@ mongoose.connect(
 );
 
 const corsOptions = {
-  origin: "https://your-netlify-app.netlify.app", // Replace with your Netlify app URL
+  origin: "https://https://unga-todo.netlify.app/", // Replace with your Netlify app URL
   optionsSuccessStatus: 200,
 };
 
