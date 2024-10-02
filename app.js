@@ -9,7 +9,7 @@ mongoose.connect(
   `mongodb+srv://${process.env.MONGODB_API_KEY}@cluster0.zt5pw.mongodb.net/`
 );
 
-app.use(cors({}));
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 app.get("/Todo", (req, res) => {
