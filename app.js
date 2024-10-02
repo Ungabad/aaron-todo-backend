@@ -17,7 +17,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
-app.get("/Todo", (req, res) => {
+app.get("/todo", (req, res) => {
   res.json({ message: "CORS enabled!" });
 });
 
