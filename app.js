@@ -10,8 +10,8 @@ mongoose.connect(
 );
 
 const corsOptions = {
-  Access-Control-Allow-Origin: "https://unga-todo.netlify.app"
-  Access-Control-Allow-Credentials: true
+  "Access-Control-Allow-Origin": "https://unga-todo.netlify.app",
+  "Access-Control-Allow-Credentials": true,
   // origin: "https://unga-todo.netlify.app", // Replace with your Netlify app URL
   optionsSuccessStatus: 200,
 };
