@@ -9,7 +9,12 @@ mongoose.connect(
   `mongodb+srv://${process.env.MONGODB_API_KEY}@cluster0.zt5pw.mongodb.net/`
 );
 
-app.use(cors({ origin: "*" }));
+const corsOptions = {
+  origin: "https://your-netlify-app.netlify.app", // Replace with your Netlify app URL
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.get("/Todo", (req, res) => {
