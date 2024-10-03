@@ -3,18 +3,15 @@ const cors = require("cors");
 const app = express();
 const Todo = require("./models/Todo");
 const mongoose = require("mongoose");
+const corsOptions = {
+  origin: "https://unga-todo.netlify.app", // Replace with your Netlify app URL
+  optionsSuccessStatus: 200,
+};
 require("dotenv").config();
 
 mongoose.connect(
   `mongodb+srv://${process.env.MONGODB_API_KEY}@cluster0.zt5pw.mongodb.net/`
 );
-
-const corsOptions = {
-  "Access-Control-Allow-Origin": "https://unga-todo.netlify.app",
-  "Access-Control-Allow-Credentials": true,
-  // origin: "https://unga-todo.netlify.app", // Replace with your Netlify app URL
-  optionsSuccessStatus: 200,
-};
 
 app.use(cors(corsOptions));
 
