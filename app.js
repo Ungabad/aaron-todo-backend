@@ -12,10 +12,9 @@ require("dotenv").config();
 mongoose.connect(
   `mongodb+srv://${process.env.MONGODB_API_KEY}@cluster0.zt5pw.mongodb.net/`
 );
-
+app.use(express.json());
 app.use(cors(corsOptions));
 
-app.use(express.json());
 app.get("/todo", (req, res) => {
   res.json({ message: "CORS enabled!" });
 });
