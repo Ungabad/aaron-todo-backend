@@ -30,7 +30,7 @@ app.post("/edit-item/:id", async (rec, res) => {
   res.json({ message: "Item updated successfully" });
 });
 
-app.delete("/DELETE-item/:id", async (rec, res) => {
+app.delete("/delete-item/:id", async (rec, res) => {
   await Todo.deleteOne({ id: req.params.id });
   res.json({ message: "Item deleted successfully" });
 });
