@@ -21,17 +21,20 @@ app.get("/todo", (req, res) => {
 });
 
 app.post("/add-todo", async (rec, res) => {
-  await Todo.create(req.body);
-  res.json({ todo: todo });
+  const newToDo = await Todo.create(req.body);
+  res.json(newToDo);
 });
 
 app.post("/edit-item/:id", async (rec, res) => {
-  await Todo.findOneAndUpdate({ id: req.params.id }, req.body);
-  res.json({ message: "Item updated successfully" });
+  const updatedTodo = await Todo.findOneAndUpdate(
+    { _id: req.params.id },
+    { $set: { text: req.body.text, completed: req.body.completed } }, // Update both task and completed status
+    { new: true }
+  );
+  res.json(updatedTodo);
 });
-
 app.delete("/delete-item/:id", async (rec, res) => {
-  await Todo.deleteOne({ id: req.params.id });
+  await Todo.deleteOne({ _id: req.params.id });
   res.json({ message: "Item deleted successfully" });
 });
 
