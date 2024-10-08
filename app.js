@@ -40,12 +40,12 @@ app.get("/todo", async (req, res) => {
 
 });
 
-app.post("/add-todo", async (rec, res) => {
+app.post("/add-todo", async (req, res) => {
   const newToDo = await Todo.create(req.body);
   res.json(newToDo);
 });
 
-app.post("/edit-item/:id", async (rec, res) => {
+app.post("/edit-item/:id", async (req, res) => {
   const updatedTodo = await Todo.findOneAndUpdate(
     { _id: req.params.id },
     { $set: { text: req.body.text, completed: req.body.completed } }, // Update both task and completed status
@@ -53,7 +53,7 @@ app.post("/edit-item/:id", async (rec, res) => {
   );
   res.json(updatedTodo);
 });
-app.delete("/delete-item/:id", async (rec, res) => {
+app.delete("/delete-item/:id", async (req, res) => {
   await Todo.deleteOne({ _id: req.params.id });
   res.json({ message: "Item deleted successfully" });
 });
