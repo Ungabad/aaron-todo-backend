@@ -16,23 +16,23 @@ mongoose.connect(
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://unga-todo.netlify.app");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-  );
-  res.header("Access-Control-Allow-Credentials", "true");
-  if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://unga-todo.netlify.app");
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+//   );
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+//   );
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   if (req.method === "OPTIONS") {
+//     res.status(200).end();
+//     return;
+//   }
+//   next();
+// });
 
 app.get("/todo", async (req, res) => {
   const todos = await Todos.find(); // Fetch all documents from the 'Todos' collection
