@@ -12,8 +12,10 @@ require("dotenv").config();
 mongoose.connect(
   `mongodb+srv://${process.env.MONGODB_API_KEY}@cluster0.zt5pw.mongodb.net/`
 );
-app.use(express.json());
+
 app.use(cors(corsOptions));
+app.use(express.json());
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://unga-todo.netlify.app");
   res.header(
@@ -32,8 +34,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/todo", (req, res) => {
-  res.json({ message: "CORS enabled!" });
+app.get("/todo", async (req, res) => {
+  const todos = await Todos.find(); // Fetch all documents from the 'Todos' collection
+  res.json({ todos: todos }); // Send the todos as a JSON response
+
 });
 
 app.post("/add-todo", async (rec, res) => {
