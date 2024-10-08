@@ -35,7 +35,7 @@ app.use(express.json());
 // });
 
 app.get("/todo", async (req, res) => {
-  const todos = await Todos.find(); // Fetch all documents from the 'Todos' collection
+  const todos = await Todo.find(); // Fetch all documents from the 'Todos' collection
   res.json({ todos: todos }); // Send the todos as a JSON response
 
 });
